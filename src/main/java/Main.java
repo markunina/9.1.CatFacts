@@ -31,7 +31,7 @@ public class Main {
 
         List<CatFacts> catFacts = mapper.readValue(response.getEntity().getContent(), new TypeReference<>() {
         });
-        catFacts.stream().filter(value -> value.getUpvotes() != null).forEach(System.out::println);
+        catFacts.stream().filter(value -> value.getUpvotes() != null && value.getUpvotes() > 0).forEach(System.out::println);
 
         response.close();
         httpClient.close();
